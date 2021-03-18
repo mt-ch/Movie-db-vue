@@ -17,6 +17,7 @@
 
 <script>
 import moment from "moment";
+
 export default {
   filters: {
     moment: function (date) {
@@ -34,7 +35,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .card {
   height: 20vh;
   width: 100%;

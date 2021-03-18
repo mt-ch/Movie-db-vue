@@ -25,10 +25,16 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: black;
+  color: white;
   background-color: #1c212e;
-  background-color: #fff;
+  /* background-color: #fff; */
   width: 100vw;
-  height: 100vh;
+  height: 100%;
 }
+
+
+p{
+padding: 0;
+
+  }
 </style>

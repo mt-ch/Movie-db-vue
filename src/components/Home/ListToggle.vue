@@ -1,14 +1,14 @@
 <template>
   <div class="mt-2 mb-2">
     <b-button-group>
-      <b-button v-on:click="handlePopular" variant="primary">
-        Popular
-      </b-button>
-      <b-button v-on:click="handleUpcoming" variant="primary">
-        Upcoming
-      </b-button>
-      <b-button v-on:click="handleTopRated" variant="primary">
-        Top Rated
+      <b-button
+        v-for="(btn, idx) in buttons"
+        :key="idx"
+        :pressed.sync="btn.active"
+        v-on:click="btn.onClick"
+        variant="primary"
+      >
+        {{ btn.option }}
       </b-button>
     </b-button-group>
   </div>
@@ -18,9 +18,38 @@
 export default {
   name: "listToggle",
   props: {
+    popularActive: { type: Boolean },
+    upcomingActive: { type: Boolean },
+    topRatedActive: { type: Boolean },
     handlePopular: { type: Function },
     handleUpcoming: { type: Function },
     handleTopRated: { type: Function },
+  },
+  data() {
+    return {
+      buttons: [
+        {
+          option: "Popular",
+          active: this.popularActive,
+          onClick: this.handlePopular,
+        },
+        {
+          option: "Upcoming",
+          active: this.upcomingActive,
+          onClick: this.handleUpcoming,
+        },
+        {
+          option: "Top Rated",
+          active: this.topRatedActive,
+          onClick: this.handleTopRated,
+        },
+      ],
+    };
+  },
+  computed: {
+    btnStates() {
+      return this.buttons.map((btn) => btn.active);
+    },
   },
 };
 </script>

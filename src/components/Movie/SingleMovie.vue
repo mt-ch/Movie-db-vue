@@ -1,75 +1,36 @@
 <template>
-  <div class="col">
+  <div style="height: 100%">
     <a v-on:click="handleBack">
       <b-icon-arrow-left></b-icon-arrow-left>
     </a>
-    <h3>{{ movie.title }}</h3>
-    <p>{{ movie.overview }}</p>
-    <p>{{ movie.release_date }}</p>
-    <p>{{ movie.runtime }}m</p>
-    <p>{{ movie.tagline }}</p>
-    <p>Rating: {{ movie.vote_average }}</p>
-    <a :href="movie.homepage"><p>Website</p></a>
-    <div class="movie-genres">
-      <p v-for="(movie, i) in movie.genres" :key="i">{{ movie.name }}</p>
-    </div>
-    <img :src="filmPoster + movie.poster_path" alt="" class="movie-poster" />
-    <div class="movie-recommendations">
-      <h3>Recommendations</h3>
-      <div
-        v-for="(recommendation, i) in recommendations"
-        :key="i"
-        class="movie-recommedation"
-      >
-        <h4>{{ recommendation.title }}</h4>
-        <p>{{ recommendation.release_date }}</p>
-        <p>{{ recommendation.vote_average }}</p>
-        <img
-          :src="filmPoster + recommendation.poster_path"
-          alt=""
-          class="movie-poster"
-        />
-        <hr />
-      </div>
-    </div>
-    <div class="movie-cast">
-      <h3>Cast</h3>
-      <div v-for="(person, i) in cast" :key="i" class="movie-cast-person">
-        <p>{{ person.character }}</p>
-        <p>{{ person.name }}</p>
-        <img
-          :src="filmPoster + person.profile_path"
-          alt=""
-          class="movie-poster"
-        />
-        <hr />
-      </div>
-    </div>
-    <div class="movie-crew">
-      <h3>Cast</h3>
-      <div v-for="(person, i) in crew" :key="i" class="movie-crew-person">
-        <p>{{ person.name }}</p>
-        <p>{{ person.department }}</p>
-        <img
-          :src="filmPoster + person.profile_path"
-          alt=""
-          class="movie-poster"
-        />
-        <hr />
-      </div>
-    </div>
+    <MovieHeader :poster="movie.poster_path" :backdrop="movie.backdrop_path" />
+      <MovieInfo :movie="movie" :movieGenres="movie.genres" />
+      <Recommendations :recommendations="recommendations" />
+      <MovieCast :cast="cast" />
+      <MovieCrew :crew="crew" />
   </div>
 </template>
 
 <script>
 import Repository from "../../repositories/RepositoryFactory";
+import MovieHeader from "./MovieHeader.vue";
 import { BIconArrowLeft } from "bootstrap-vue";
+import MovieInfo from "./MovieInfo.vue";
+import Recommendations from "./Recommendations.vue";
+import MovieCast from "./MovieCast.vue";
+import MovieCrew from "./MovieCrew.vue";
+
 const MovieRepository = Repository.get("movie");
 
 export default {
   name: "Movie",
   components: {
     BIconArrowLeft,
+    MovieHeader,
+    Recommendations,
+    MovieInfo,
+    MovieCast,
+    MovieCrew,
   },
   data() {
     return {
@@ -95,7 +56,7 @@ export default {
 
       const crewData = creditsData.data.crew;
       const castData = creditsData.data.cast;
-      
+
       this.cast = castData;
       this.crew = crewData;
       this.recommendations = recommendationsData.data.results;
@@ -108,8 +69,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.movie-poster {
-  width: 15vw;
-}
-</style>
+

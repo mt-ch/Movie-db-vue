@@ -1,0 +1,17 @@
+.movie-recommendations-header{
+    text-align: left;
+}
+
+.movie-recommendations{
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    .movie-recommedation{
+        margin-right: 5vw;
+    }
+}
+
+.card img{
+    max-width: 25vw;
+}
