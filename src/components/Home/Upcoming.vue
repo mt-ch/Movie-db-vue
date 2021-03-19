@@ -1,6 +1,11 @@
 <template>
-  <div class="col">
-    <Movie v-for="(movie, i) in upcoming" :key="i" :movie="movie" />
+  <div>
+    <Movie
+      v-for="(movie, i) in upcoming"
+      :key="i"
+      :movie="movie"
+      :loading="loading"
+    />
   </div>
 </template>
 
@@ -8,12 +13,15 @@
 import Repository from "../../repositories/RepositoryFactory";
 const UpcomingRepository = Repository.get("upcoming");
 
-import Movie from "../Movie/Movie";
-
 export default {
   name: "Upcoming",
   components: {
-    Movie,
+    Movie: () => import("../Movie/Movie.vue"),
+  },
+  props: {
+    loading: {
+      type: Boolean,
+    },
   },
   data() {
     return {
@@ -27,6 +35,7 @@ export default {
     getUpcoming: async function () {
       const { data } = await UpcomingRepository.get();
       this.upcoming = data.results;
+      this.loading = false;
     },
   },
 };

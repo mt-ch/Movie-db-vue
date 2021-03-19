@@ -1,26 +1,33 @@
 <template>
-  <div>
-    <h5 class="movie-recommendations-header">Recommendations</h5>
+  <div class="">
+    <h5 class="movie-recommendations-header mt-3 mb-2 primary-text">
+      Recommendations
+    </h5>
     <div class="movie-recommendations">
       <div
         v-for="(recommendation, i) in recommendations"
         :key="i"
-        class="movie-recommedation"
+        class="movie-recommendation"
       >
         <router-link :to="{ name: 'movie', params: { id: recommendation.id } }">
           <b-card
             :img-src="filmPoster + recommendation.poster_path"
             img-alt="Card image"
             img-left
-            class="mb-3 text-left"
+            class="text-left recommendation-card"
           >
-            <b-card-title>{{ recommendation.title }}</b-card-title>
-            <b-card-sub-title class="mb-2"
-              >{{ recommendation.release_date | momentYearDate
-              }}{{
+            <p class="primary-text">
+              <strong>{{ recommendation.title }}</strong>
+            </p>
+            <p class="mb-2 movie-date">
+              {{ recommendation.release_date | yearDate }}
+            </p>
+            <b-badge variant="dark">
+              Rating
+              <b-badge variant="light">{{
                 recommendation.vote_average | ratingPercentage
-              }}</b-card-sub-title
-            >
+              }}</b-badge>
+            </b-badge>
           </b-card>
         </router-link>
       </div>
@@ -29,7 +36,7 @@
 </template>
 
 <script>
-import "../../styles/recommendations.scss";
+import "@/styles/movie/movieRecommendations.scss";
 import moment from "moment";
 
 export default {
@@ -45,7 +52,7 @@ export default {
     };
   },
   filters: {
-    momentYearDate: function (date) {
+    yearDate: function (date) {
       return moment(date).format("(YYYY)");
     },
     ratingPercentage: function (rating) {

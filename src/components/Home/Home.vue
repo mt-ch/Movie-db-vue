@@ -1,34 +1,33 @@
 <template>
-  <div>
-    <ListToggle
-      :handlePopular="handlePopular"
-      :handleUpcoming="handleUpcoming"
-      :handleTopRated="handleTopRated"
-      :popularActive="popularActive"
-      :upcomingActive="upcomingActive"
-      :topRatedActive="topRatedActive"
-      :key="componentKey"
-    />
-    <Popular v-if="toggleView === 1" />
-    <TopRated v-if="toggleView === 2" />
-    <Upcoming v-if="toggleView === 3" />
+  <div class="home">
+    <div class="d-flex">
+      <ListToggle
+        :handlePopular="handlePopular"
+        :handleUpcoming="handleUpcoming"
+        :handleTopRated="handleTopRated"
+        :popularActive="popularActive"
+        :upcomingActive="upcomingActive"
+        :topRatedActive="topRatedActive"
+        :key="componentKey"
+      />
+    </div>
+    <Popular v-if="toggleView === 1" :loading="loading" />
+    <TopRated v-if="toggleView === 2" :loading="loading" />
+    <Upcoming v-if="toggleView === 3" :loading="loading" />
   </div>
 </template>
-<script>
-import Popular from "./Popular.vue";
-import TopRated from "./TopRated.vue";
-import Upcoming from "./Upcoming.vue";
-import ListToggle from "./ListToggle";
 
+<script>
 export default {
   components: {
-    Popular,
-    TopRated,
-    Upcoming,
-    ListToggle,
+    Popular: () => import("./Popular.vue"),
+    TopRated: () => import("./TopRated.vue"),
+    Upcoming: () => import("./Upcoming.vue"),
+    ListToggle: () => import("./ListToggle.vue"),
   },
   data() {
     return {
+      loading: true,
       toggleView: 1,
       popularActive: true,
       upcomingActive: false,
@@ -47,7 +46,6 @@ export default {
       this.upcomingActive = false;
       this.topRatedActive = false;
       this.forceRerender();
-
     },
     handleUpcoming() {
       this.toggleView = 2;
@@ -56,7 +54,6 @@ export default {
       this.upcomingActive = true;
       this.topRatedActive = false;
       this.forceRerender();
-
     },
     handleTopRated: function () {
       this.toggleView = 3;
@@ -66,7 +63,6 @@ export default {
       this.topRatedActive = true;
       this.forceRerender();
     },
-  
   },
 };
 </script>

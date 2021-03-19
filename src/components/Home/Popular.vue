@@ -1,6 +1,11 @@
 <template>
   <div>
-    <Movie v-for="(movie, i) in popular" :key="i" :movie="movie" />
+    <Movie
+      v-for="(movie, i) in popular"
+      :key="i"
+      :movie="movie"
+      :loading="loading"
+    />
   </div>
 </template>
 
@@ -8,25 +13,30 @@
 import Repository from "../../repositories/RepositoryFactory";
 const PopularRepository = Repository.get("popular");
 
-import Movie from "../Movie/Movie";
 export default {
   name: "Popular",
   components: {
-    Movie
+    Movie: () => import("../Movie/Movie.vue"),
+  },
+  props: {
+    loading: {
+      type: Boolean,
+    },
   },
   data() {
     return {
-      popular: []
+      popular: [],
     };
   },
   created() {
     this.getPopular();
   },
   methods: {
-    getPopular: async function() {
+    getPopular: async function () {
       const { data } = await PopularRepository.get();
       this.popular = data.results;
-    }
-  }
+      this.loading = false;
+    },
+  },
 };
 </script>

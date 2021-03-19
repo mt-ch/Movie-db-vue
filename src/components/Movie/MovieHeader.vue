@@ -1,11 +1,20 @@
 <template>
-  <div class="movie-header">
-    <img :src="filmPoster + poster" alt="" class="movie-poster" />
-    <img :src="filmPoster + backdrop" alt="" class="movie-backdrop" />
+  <div class="movie-header-wrapper">
+    <div class="movie-header">
+      <img :src="filmPoster + poster" alt="" class="movie-poster" />
+      <a v-on:click="handleBack" class="back-button">
+        <b-badge class="back-icon" variant="primary">
+          <b-icon-arrow-left></b-icon-arrow-left>
+        </b-badge>
+      </a>
+      <img :src="filmPoster + backdrop" alt="" class="movie-backdrop" />
+    </div>
   </div>
 </template>
 
 <script>
+import "@/styles/movie/movieHeader.scss";
+
 export default {
   name: "movieHeader",
   props: {
@@ -17,24 +26,10 @@ export default {
       filmPoster: "https://image.tmdb.org/t/p/w500/",
     };
   },
+  methods: {
+    handleBack: function () {
+      history.back();
+    },
+  },
 };
 </script>
-
-<style>
-.movie-header {
-  position: relative;
-}
-
-.movie-poster {
-  width: 15vw;
-  position: absolute;
-
-}
-
-.movie-backdrop {
-    width: 100vw;
-    height: 100%;
-    object-fit: cover;
-    max-height: 30vh;
-}
-</style>

@@ -1,0 +1,53 @@
+.movie-header-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100%;
+
+  .movie-header {
+    position: relative;
+    width: 100vw;
+    height: 30vh;
+    content: "";
+    color: var(--primary)!important;
+
+    .movie-poster {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      height: 80%;
+      border-radius: 0.5em;
+      opacity: 1;
+      z-index: 99;
+    }
+
+    .movie-backdrop {
+      position: absolute;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      max-height: 30vh;
+      opacity: 0.5;
+    }
+
+    .back-button {
+      position: absolute;
+      top: .5em;
+      left: var(--padding);
+      font-size: 1.5em;
+      z-index: 99;
+
+      .back-icon {
+        background-color: var(--primary);
+        color: var(--black);
+
+        &:hover {
+          background-color: var(--primaryHover);
+        }
+      }
+    }
+  }
+}

@@ -1,36 +1,25 @@
 <template>
   <div style="height: 100%">
-    <a v-on:click="handleBack">
-      <b-icon-arrow-left></b-icon-arrow-left>
-    </a>
     <MovieHeader :poster="movie.poster_path" :backdrop="movie.backdrop_path" />
-      <MovieInfo :movie="movie" :movieGenres="movie.genres" />
-      <Recommendations :recommendations="recommendations" />
-      <MovieCast :cast="cast" />
-      <MovieCrew :crew="crew" />
+    <MovieInfo :movie="movie" :movieGenres="movie.genres" />
+    <Recommendations :recommendations="recommendations" />
+    <MovieCast :cast="cast" />
+    <MovieCrew :crew="crew" />
   </div>
 </template>
 
 <script>
 import Repository from "../../repositories/RepositoryFactory";
-import MovieHeader from "./MovieHeader.vue";
-import { BIconArrowLeft } from "bootstrap-vue";
-import MovieInfo from "./MovieInfo.vue";
-import Recommendations from "./Recommendations.vue";
-import MovieCast from "./MovieCast.vue";
-import MovieCrew from "./MovieCrew.vue";
-
 const MovieRepository = Repository.get("movie");
 
 export default {
   name: "Movie",
   components: {
-    BIconArrowLeft,
-    MovieHeader,
-    Recommendations,
-    MovieInfo,
-    MovieCast,
-    MovieCrew,
+    MovieHeader: () => import("./MovieHeader.vue"),
+    MovieInfo: () => import("./MovieInfo.vue"),
+    MovieCast: () => import("./MovieCast.vue"),
+    MovieCrew: () => import("./MovieCrew.vue"),
+    Recommendations: () => import("./MovieRecommendations.vue"),
   },
   data() {
     return {
@@ -61,9 +50,6 @@ export default {
       this.crew = crewData;
       this.recommendations = recommendationsData.data.results;
       this.movie = movieData.data;
-    },
-    handleBack: function () {
-      history.back();
     },
   },
 };

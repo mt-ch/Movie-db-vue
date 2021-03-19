@@ -1,16 +1,16 @@
 <template>
-  <div class="container crew-container">
-    <h5 class="text-left">Cast</h5>
+  <div class="crew-container">
+    <h5 class="text-left mt-3 mb-2 primary-text crew-header">Cast</h5>
     <div class="movie-casts">
       <div v-for="(person, i) in cast" :key="i" class="movie-cast">
         <b-card
-          :img-src="filmPoster + person.profile_path"
-          img-alt="Image"
+          :img-src="person.profile_path | crewImg"
+          :img-alt="person.name"
           img-top
           class="cast-card"
         >
-          <p><strong>{{ person.character }}</strong></p>
-          <p>{{ person.name }}</p>
+          <p class="primary-text cast-char"><strong>{{ person.character }}</strong></p>
+          <p class="cast-name">{{ person.name }}</p>
         </b-card>
       </div>
     </div>
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import "../../styles/cast.scss";
+import "@/styles/movie/movieCast.scss";
 
 export default {
   name: "MovieCast",
@@ -31,6 +31,15 @@ export default {
     return {
       filmPoster: "https://image.tmdb.org/t/p/w500/",
     };
+  },
+  filters: {
+    crewImg: function (src) {
+      if (src != null) {
+        return "https://image.tmdb.org/t/p/w500/" + src;
+      } else  {
+        return "https://i.ibb.co/M62wGdW/img-crew-placeholder.jpg";
+      }
+    },
   },
 };
 </script>

@@ -1,0 +1,38 @@
+.nav {
+  background-color: var(--background);
+  border-bottom: 1px solid var(--primary);
+  padding: 0.5em var(--padding);
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  .nav-search-bar {
+    width: 40vw;
+    max-width: 200px;
+  }
+
+  .navbar-brand {
+    color: var(--primary);
+  }
+
+  .navbar-brand:hover {
+    color: var(--primaryHover);
+  }
+
+  .search-results {
+    position: absolute;
+    width: 40vw;
+    max-width: 200px;
+    z-index: 100;
+
+    .search-result {
+      display: flex;
+      justify-content: space-between;
+
+      p {
+        color: black;
+        text-align: left;
+      }
+    }
+  }
+}

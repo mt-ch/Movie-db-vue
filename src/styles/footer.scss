@@ -1,0 +1,16 @@
+.footer {
+  position: relative;
+  background-color: var(--background);
+  text-align: end;
+  padding: 2vh var(--padding);
+  border-top: 1px solid var(--primary);
+
+  .footer-link {
+    color: var(--primary);
+    margin-left: 3vw;
+
+    &:hover {
+      color: var(--primaryHover);
+    }
+  }
+}

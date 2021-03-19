@@ -1,12 +1,13 @@
 <template>
-  <div class="mt-2 mb-2">
+  <div class="mt-4 mb-4">
     <b-button-group>
       <b-button
         v-for="(btn, idx) in buttons"
         :key="idx"
         :pressed.sync="btn.active"
         v-on:click="btn.onClick"
-        variant="primary"
+        variant="secondary"
+        :disabled="btn.active"
       >
         {{ btn.option }}
       </b-button>

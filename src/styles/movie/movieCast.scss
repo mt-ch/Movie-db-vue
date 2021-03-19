@@ -1,0 +1,48 @@
+.crew-container {
+  padding-right: -0.5em !important;
+}
+
+.movie-casts {
+  position: relative;
+  display: flex;
+  height: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding-left: var(--padding);
+  p {
+    color: black;
+    text-align: left;
+  }
+
+  .movie-cast {
+    margin-right: 1em;
+
+    .cast-card {
+      width: 27vw;
+      max-width: 100px;
+      height: 33vh;
+      max-height: 220px;
+      position: relative;
+      background-color: var(--gray3);
+    }
+
+    .cast-card img {
+      max-width: 100%;
+      height: 110px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 0.5em;
+    }
+
+    .cast-name {
+      color: var(--white);
+    }
+
+    .cast-name,
+    .cast-char {
+      font-size: smaller;
+    }
+  }
+}

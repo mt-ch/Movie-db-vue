@@ -1,40 +1,17 @@
 <template>
   <div id="app">
     <NavBar/>
-    <!-- <ListToggle/> -->
     <router-view></router-view>
+    <Footer/>
   </div>
 </template>
 
 <script>
-import NavBar from "./components/Nav.vue";
-// import ListToggle from "./components/ListToggle.vue";
-
 export default {
   name: 'App',
   components: {
-    NavBar,
-    // ListToggle
+    NavBar: () => import('./components/Nav.vue'),
+    Footer: () => import('./components/Footer.vue'),
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: white;
-  background-color: #1c212e;
-  /* background-color: #fff; */
-  width: 100vw;
-  height: 100%;
-}
-
-
-p{
-padding: 0;
-
-  }
-</style>
