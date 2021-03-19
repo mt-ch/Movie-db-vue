@@ -12,16 +12,12 @@
 <script>
 import Repository from "../../repositories/RepositoryFactory";
 const TopRatedRepository = Repository.get("topRated");
+import Movie from "../movie/Movie.vue";
 
 export default {
   name: "TopRated",
   components: {
-    Movie: () => import("../movie/Movie.vue"),
-  },
-  props: {
-    loading: {
-      type: Boolean,
-    },
+    Movie,
   },
   data() {
     return {

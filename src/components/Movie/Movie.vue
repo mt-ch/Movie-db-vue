@@ -49,7 +49,7 @@ export default {
     },
   },
   props: {
-    movie: { type: Array },
+    movie: { type: Object },
     loading: { type: Boolean },
   },
   data() {

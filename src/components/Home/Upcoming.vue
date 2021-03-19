@@ -12,16 +12,12 @@
 <script>
 import Repository from "../../repositories/RepositoryFactory";
 const UpcomingRepository = Repository.get("upcoming");
+import Movie from "../movie/Movie.vue";
 
 export default {
   name: "Upcoming",
   components: {
-    Movie: () => import("../movie/Movie.vue"),
-  },
-  props: {
-    loading: {
-      type: Boolean,
-    },
+    Movie,
   },
   data() {
     return {

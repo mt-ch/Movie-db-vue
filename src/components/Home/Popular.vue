@@ -11,17 +11,14 @@
 
 <script>
 import Repository from "../../repositories/RepositoryFactory";
+import Movie from "../movie/Movie.vue";
+
 const PopularRepository = Repository.get("popular");
 
 export default {
   name: "Popular",
   components: {
-    Movie: () => import("../movie/Movie.vue"),
-  },
-  props: {
-    loading: {
-      type: Boolean,
-    },
+    Movie,
   },
   data() {
     return {
