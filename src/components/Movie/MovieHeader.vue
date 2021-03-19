@@ -2,7 +2,7 @@
   <div class="movie-header-wrapper">
     <div class="movie-header">
       <img :src="filmPoster + poster" alt="" class="movie-poster" />
-      <a v-on:click="handleBack" class="back-button">
+      <a href="/" class="back-button">
         <b-badge class="back-icon" variant="primary">
           <b-icon-arrow-left></b-icon-arrow-left>
         </b-badge>
@@ -25,11 +25,6 @@ export default {
     return {
       filmPoster: "https://image.tmdb.org/t/p/w500/",
     };
-  },
-  methods: {
-    handleBack() {
-      history.back();
-    },
   },
 };
 </script>

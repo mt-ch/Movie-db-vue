@@ -62,7 +62,8 @@ export default {
   methods: {
     handleRecommendClick(id) {
       console.log(id)
-      this.$router.go({ path: `/movie/${id}` })
+      this.$router.push({ path: `/movie/${id}` })
+      this.$router.go()
     }
   },
 };
