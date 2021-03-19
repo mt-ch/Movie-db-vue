@@ -42,5 +42,6 @@ a:hover {
   text-decoration: none;
   .recommendation-card{
     border: 1px var(--primary) solid;
+    cursor: pointer;
   }
 }

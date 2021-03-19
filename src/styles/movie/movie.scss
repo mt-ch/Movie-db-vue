@@ -40,6 +40,10 @@ a:hover {
 @media (min-width: 1000px) {
   .movie-card {
     height: 25vh;
+
+    .card-body {
+      padding: 1.5em !important;
+    }
   }
   .movie-card-container {
     display: flex;

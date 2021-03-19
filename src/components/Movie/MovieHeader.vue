@@ -27,7 +27,7 @@ export default {
     };
   },
   methods: {
-    handleBack: function () {
+    handleBack() {
       history.back();
     },
   },

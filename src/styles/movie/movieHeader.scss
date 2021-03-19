@@ -8,7 +8,7 @@
     width: 100vw;
     height: 30vh;
     content: "";
-    color: var(--primary)!important;
+    color: var(--primary) !important;
 
     .movie-poster {
       position: absolute;
@@ -35,10 +35,11 @@
 
     .back-button {
       position: absolute;
-      top: .5em;
+      top: 0.5em;
       left: var(--padding);
       font-size: 1.5em;
       z-index: 99;
+      cursor: pointer;
 
       .back-icon {
         background-color: var(--primary);

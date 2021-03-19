@@ -16,7 +16,7 @@ const UpcomingRepository = Repository.get("upcoming");
 export default {
   name: "Upcoming",
   components: {
-    Movie: () => import("../Movie/Movie.vue"),
+    Movie: () => import("../movie/Movie.vue"),
   },
   props: {
     loading: {

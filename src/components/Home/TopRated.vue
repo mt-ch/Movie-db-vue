@@ -16,7 +16,7 @@ const TopRatedRepository = Repository.get("topRated");
 export default {
   name: "TopRated",
   components: {
-    Movie: () => import("../Movie/Movie.vue"),
+    Movie: () => import("../movie/Movie.vue"),
   },
   props: {
     loading: {

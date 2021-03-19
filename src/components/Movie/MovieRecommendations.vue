@@ -9,7 +9,7 @@
         :key="i"
         class="movie-recommendation"
       >
-        <router-link :to="{ name: 'movie', params: { id: recommendation.id } }">
+        <a v-on:click="handleRecommendClick(recommendation.id)">
           <b-card
             :img-src="filmPoster + recommendation.poster_path"
             img-alt="Card image"
@@ -29,7 +29,7 @@
               }}</b-badge>
             </b-badge>
           </b-card>
-        </router-link>
+        </a>
       </div>
     </div>
   </div>
@@ -58,6 +58,12 @@ export default {
     ratingPercentage: function (rating) {
       return rating * 10 + "%";
     },
+  },
+  methods: {
+    handleRecommendClick(id) {
+      console.log(id)
+      this.$router.go({ path: `/movie/${id}` })
+    }
   },
 };
 </script>
