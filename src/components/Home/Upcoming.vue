@@ -12,7 +12,7 @@
 <script>
 import Repository from "../../repositories/RepositoryFactory";
 const UpcomingRepository = Repository.get("upcoming");
-import Movie from "../movie/Movie.vue";
+import Movie from "../Movie/Movie.vue";
 
 export default {
   name: "Upcoming",

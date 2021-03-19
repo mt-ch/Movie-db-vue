@@ -57,6 +57,7 @@ export default {
       filmPoster: "https://image.tmdb.org/t/p/w500/",
     };
   },
+
   mounted() {
     // const ratingBadge = document.querySelectorAll(".movie-rating");
     // ratingBadge.forEach((badge) => {

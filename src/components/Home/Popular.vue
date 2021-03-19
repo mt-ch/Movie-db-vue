@@ -11,7 +11,7 @@
 
 <script>
 import Repository from "../../repositories/RepositoryFactory";
-import Movie from "../movie/Movie.vue";
+import Movie from "../Movie/Movie.vue";
 
 const PopularRepository = Repository.get("popular");
 
