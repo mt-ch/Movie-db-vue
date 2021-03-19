@@ -16,12 +16,12 @@
     margin-right: 1em;
 
     .recommendation-card {
-      height: 150px;
-      width: 50vw;
-      max-width: 250px;
+      height: 200px;
+      width: 200px;
       background-color: var(--gray3);
       .card-body {
         padding: .5em !important;
+        font-size: smaller;
       }
     }
   }
@@ -30,6 +30,10 @@
     color: var(--gray1);
     font-size: smaller;
   }
+}
+
+.movie-recommendations::-webkit-scrollbar {
+  display: none;
 }
 
 .recommendation-card img {

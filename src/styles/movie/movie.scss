@@ -27,7 +27,9 @@
 }
 
 .movie-card img {
-  object-fit: contain;
+  width: 100%;
+  max-width: 90px;
+  min-width: 50px;
 }
 
 a:hover {
@@ -60,5 +62,11 @@ a:hover {
       overflow: hidden;
       text-overflow: ellipsis;
     }
+  }
+
+  .movie-card img {
+    width: 100%;
+    max-width: 130px;
+    min-width: 50px;
   }
 }

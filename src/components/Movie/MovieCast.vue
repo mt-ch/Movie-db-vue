@@ -1,6 +1,6 @@
 <template>
   <div class="crew-container">
-    <h5 class="text-left mt-3 mb-2 primary-text crew-header">Cast</h5>
+    <h4 class="text-left mt-3 mb-2 primary-text crew-header">Cast</h4>
     <div class="movie-casts">
       <div v-for="(person, i) in cast" :key="i" class="movie-cast">
         <b-card
@@ -9,7 +9,7 @@
           img-top
           class="cast-card"
         >
-          <p class="primary-text cast-char"><strong>{{ person.character }}</strong></p>
+          <p class="primary-text cast-char mb-1"><strong>{{ person.character }}</strong></p>
           <p class="cast-name">{{ person.name }}</p>
         </b-card>
       </div>

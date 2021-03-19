@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <Greeting/>
     <div class="d-flex">
       <ListToggle
         :handlePopular="handlePopular"
@@ -24,6 +25,7 @@ export default {
     TopRated: () => import("./TopRated.vue"),
     Upcoming: () => import("./Upcoming.vue"),
     ListToggle: () => import("./ListToggle.vue"),
+    Greeting: () => import("./Greeting.vue"),
   },
   data() {
     return {
@@ -66,5 +68,3 @@ export default {
   },
 };
 </script>
-<style>
-</style>

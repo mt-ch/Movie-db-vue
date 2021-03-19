@@ -7,7 +7,9 @@
           <b-icon-arrow-left></b-icon-arrow-left>
         </b-badge>
       </a>
-      <img :src="filmPoster + backdrop" alt="" class="movie-backdrop" />
+      <div>
+        <img :src="filmPoster + backdrop" alt="" class="movie-backdrop" />
+      </div>
     </div>
   </div>
 </template>

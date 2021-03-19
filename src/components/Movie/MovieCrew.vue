@@ -1,7 +1,7 @@
 <template>
   <div class="movie-crew mt-4">
     <div class="d-flex w-100 justify-content-between mt-3 mb-2">
-      <h5 class="primary-text">Crew</h5>
+      <h4 class="primary-text">Crew</h4>
       <b-button
         v-on:click="handleShowMore"
         size="sm"
@@ -33,7 +33,7 @@
             class="movie-crew-photo"
           />
           <div>
-            <p class="primary-text">
+            <p class="primary-text mb-1">
               <strong>{{ person.name }}</strong>
             </p>
             <p>{{ person.department }}</p>

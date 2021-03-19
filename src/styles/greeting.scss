@@ -1,0 +1,42 @@
+.greeting {
+  position: relative;
+  background-color: var(--gray3) !important;
+  text-align: left;
+  margin: 1em 0 !important;
+  padding: 2em 1.5em !important;
+  min-height: 40vh !important;
+  height: 100%;
+
+  .greeting-button {
+    position: relative;
+    z-index: 5;
+    background-color: var(--primary) !important;
+    color: var(--black) !important;
+    &:hover {
+      background-color: var(--primaryHover) !important;
+    }
+  }
+  .greeting-photo {
+    height: 25vh;
+    max-width: 300px;
+    position: absolute;
+    top: 20%;
+    right: 1.5em;
+    z-index: 3;
+    opacity: 0.5;
+  }
+
+  .greeting-text,
+  .greeting-header {
+    position: relative;
+    z-index: 5;
+  }
+}
+
+@media(min-width: 450px){
+  .greeting-photo {
+    height: 25vh;
+    max-width: 600px;
+  }
+
+}

@@ -1,12 +1,12 @@
 <template>
   <div class="movie-info-wrapper">
     <div class="mt-3 movie-title">
-      <h3 class="primary-text">
+      <h1 class="primary-text">
         {{ movie.title }}
         <span class="movie-year">{{
           movie.release_date | yearDate
         }}</span>
-      </h3>
+      </h1>
     </div>
 
     <b-badge variant="light" class="mb-3 mt-3">
@@ -29,7 +29,7 @@
     <div class="movie-overview">
       <p class="movie-tagline mt-3 mb-3">{{ movie.tagline }}</p>
 
-      <h5 class="mb-1 primary-text">Overview</h5>
+      <h4 class="mb-1 primary-text">Overview</h4>
       <p>{{ movie.overview }}</p>
     </div>
   </div>
@@ -43,7 +43,7 @@ export default {
   name: "MovieInfo",
   props: {
     movie: {
-      type: Object,
+      type: null,
     },
     movieGenres: {
       type: Array,

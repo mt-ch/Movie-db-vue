@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-4 mb-4">
+  <div class="mt-0 mb-3">
     <b-button-group>
       <b-button
         v-for="(btn, idx) in buttons"

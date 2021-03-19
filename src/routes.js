@@ -7,8 +7,8 @@ import SingleMovie from "./components/Movie/SingleMovie.vue";
 import Home from "./components/Home/Home.vue";
 
 const router = new VueRouter({
-  // mode: "history",
-  // linkActiveClass: "active",
+  mode: "history",
+  linkActiveClass: "active",
   routes: [
     {
       path: "/",

@@ -8,7 +8,10 @@
       </b-card>
     </template>
 
-    <router-link class="movie-link" :to="{ name: 'movie', params: { id: movie.id } }">
+    <router-link
+      class="movie-link"
+      :to="{ name: 'movie', params: { id: movie.id } }"
+    >
       <b-card
         :img-src="filmPoster + movie.poster_path"
         :img-alt="movie.title"
@@ -17,11 +20,11 @@
       >
         <div class="movie-card-container">
           <div class="movie-card-container-left">
-            <p class="movie-title primary-text">
+            <p class="movie-title primary-text mb-1">
               <strong>{{ movie.title }}</strong>
             </p>
             <p class="movie-date">{{ movie.release_date | momentFullDate }}</p>
-            <b-badge variant="dark" class="movie-rating">
+            <b-badge variant="dark">
               Rating
               <b-badge variant="light">{{
                 movie.vote_average | ratingPercentage
@@ -40,6 +43,10 @@ import moment from "moment";
 import "@/styles/movie/movie.scss";
 
 export default {
+  props: {
+    movie: { type: null },
+    loading: { type: Boolean },
+  },
   filters: {
     momentFullDate: function (date) {
       return moment(date).format("D MMMM YYYY");
@@ -48,21 +55,10 @@ export default {
       return rating * 10 + "%";
     },
   },
-  props: {
-    movie: { type: Object },
-    loading: { type: Boolean },
-  },
   data() {
     return {
       filmPoster: "https://image.tmdb.org/t/p/w500/",
     };
-  },
-
-  mounted() {
-    // const ratingBadge = document.querySelectorAll(".movie-rating");
-    // ratingBadge.forEach((badge) => {
-    //   badge.classList.add("ratingGreen");
-    // });
   },
 };
 </script>
