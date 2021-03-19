@@ -1,25 +1,9 @@
-# movie-db-vue
+# MovieDB
 
-## Project setup
-```
-npm install
-```
+Movie database made in Vue and using the The movie DB API.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+* Vue
+* Bootstrap
+* Sass
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-# movie-db-vue
+View here: https://mt-ch-movie.netlify.app/
