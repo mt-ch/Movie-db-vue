@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
+
 import SingleMovie from "./components/movie/SingleMovie.vue";
 import Home from "./components/home/Home.vue";
 
