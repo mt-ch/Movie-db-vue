@@ -1,6 +1,6 @@
 # MovieDB
 
-Movie database made in Vue and using the The movie DB API.
+Movie database made in Vue and using the The Movie DB API.
 
 * Vue
 * Bootstrap
