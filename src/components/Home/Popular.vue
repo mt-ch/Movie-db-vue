@@ -1,39 +1,37 @@
 <template>
   <div>
-    <Movie
-      v-for="(movie, i) in popular"
-      :key="i"
-      :movie="movie"
-      :loading="loading"
-    />
+    <!-- <div v-if="loading">
+      <div>Loading...</div>
+    </div> -->
+    <transition name="fade">
+      <div>
+        <Movie v-for="(movie, i) in popular" :key="i" :movie="movie" />
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
-import Repository from "../../repositories/RepositoryFactory";
 import Movie from "../Movie/Movie.vue";
-
-const PopularRepository = Repository.get("popular");
+import { mapState } from "vuex";
 
 export default {
   name: "Popular",
   components: {
     Movie,
   },
-  data() {
-    return {
-      popular: [],
-    };
+
+  computed: {
+    ...mapState(["popular"]),
+    loading() {
+      return this.$store.state.isLoading;
+    },
   },
   created() {
-    this.getPopular();
-  },
-  methods: {
-    getPopular: async function () {
-      const { data } = await PopularRepository.get();
-      this.popular = data.results;
-      this.loading = false;
-    },
+    this.$store.dispatch("getPopular", { self: this });
+    // setInterval(() => {
+    //   this.$store.state.isLoading = false;
+    // }, 2000);
   },
 };
 </script>

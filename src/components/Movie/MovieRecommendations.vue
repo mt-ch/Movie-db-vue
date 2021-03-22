@@ -9,7 +9,7 @@
         :key="i"
         class="movie-recommendation"
       >
-        <a v-on:click="handleRecommendClick(recommendation.id)">
+        <a :href="'/movie/' + recommendation.id">
           <b-card
             :img-src="recommendation.poster_path | posterImg"
             img-alt="Card image"
@@ -22,12 +22,7 @@
             <p class="mb-2 movie-date">
               {{ recommendation.release_date | yearDate }}
             </p>
-            <b-badge variant="dark">
-              Rating
-              <b-badge variant="light">{{
-                recommendation.vote_average | ratingPercentage
-              }}</b-badge>
-            </b-badge>
+            <Rating :movieRating="recommendation.vote_average"/>
           </b-card>
         </a>
       </div>
@@ -36,11 +31,15 @@
 </template>
 
 <script>
-import "@/styles/movie/movieRecommendations.scss";
 import moment from "moment";
+import Rating from "@/components/Rating.vue";
+import "@/styles/movie/movieRecommendations.scss";
 
 export default {
   name: "Recommendations",
+  components: {
+    Rating,
+  },
   props: {
     recommendations: {
       type: Array,
@@ -55,22 +54,19 @@ export default {
     yearDate: function (date) {
       return moment(date).format("(YYYY)");
     },
-    ratingPercentage: function (rating) {
-      return rating * 10 + "%";
-    },
     posterImg: function (src) {
       if (src != null) {
         return "https://image.tmdb.org/t/p/w500/" + src;
-      } else  {
+      } else {
         return "https://i.ibb.co/M62wGdW/img-crew-placeholder.jpg";
       }
     },
   },
-  methods: {
-    handleRecommendClick(id) {
-      this.$router.push({ path: `/movie/${id}` })
-      this.$router.go()
-    }
-  },
+  // methods: {
+  //   handleRecommendClick(id) {
+  //     this.$router.push({ path: `/movie/${id}` })
+  //     this.$router.go()
+  //   }
+  // },
 };
 </script>

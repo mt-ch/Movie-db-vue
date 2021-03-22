@@ -1,22 +1,15 @@
 <template>
   <div class="movie-info-wrapper">
-    <div class="mt-3 movie-title">
+    <div class="mt-3 mb-2 movie-title">
       <h1 class="primary-text">
         {{ movie.title }}
-        <span class="movie-year">{{
-          movie.release_date | yearDate
-        }}</span>
+        <span class="movie-year">{{ movie.release_date | yearDate }}</span>
       </h1>
     </div>
 
-    <b-badge variant="light" class="mb-3 mt-3">
-      Rating
-      <b-badge variant="dark">{{
-        movie.vote_average | ratingPercentage
-      }}</b-badge>
-    </b-badge>
+    <Rating :movieRating="movie.vote_average" />
 
-    <div class="movie-info">
+    <div class="movie-info mt-3">
       <p>
         {{ movie.release_date | numberDate }} •
         {{ movie.runtime | MovieTime }}
@@ -37,10 +30,14 @@
 
 <script>
 import moment from "moment";
+import Rating from "@/components/Rating.vue";
 import "@/styles/movie/movieInfo.scss";
 
 export default {
   name: "MovieInfo",
+  components: {
+    Rating,
+  },
   props: {
     movie: {
       type: null,
@@ -60,9 +57,6 @@ export default {
       const h = (time / 60) | 0;
       const m = time % 60 | 0;
       return h + "h " + m + "m";
-    },
-    ratingPercentage: function (rating) {
-      return rating * 10 + "%";
     },
     movieGenreSort: function (genres) {
       const genreList = [];

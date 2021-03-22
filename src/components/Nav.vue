@@ -1,5 +1,5 @@
 <template>
-  <b-navbar type="dark" class="nav mb-3">
+  <b-navbar type="dark" class="nav">
     <router-link class="navbar-brand" to="/">
       <b-navbar-brand><strong>MovieDB</strong></b-navbar-brand>
     </router-link>

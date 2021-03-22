@@ -4,12 +4,12 @@
       <img :src="filmPoster + poster" alt="" class="movie-poster" />
       <a href="/" class="back-button">
         <b-badge class="back-icon" variant="primary">
-          <b-icon-arrow-left></b-icon-arrow-left>
+          <b-icon-x></b-icon-x>
         </b-badge>
       </a>
-      <div>
+      <!-- <div> -->
         <img :src="filmPoster + backdrop" alt="" class="movie-backdrop" />
-      </div>
+      <!-- </div> -->
     </div>
   </div>
 </template>
@@ -25,7 +25,7 @@ export default {
   },
   data() {
     return {
-      filmPoster: "https://image.tmdb.org/t/p/w500/",
+      filmPoster: "https://image.tmdb.org/t/p/original/",
     };
   },
 };

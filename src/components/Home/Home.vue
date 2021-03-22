@@ -12,14 +12,16 @@
         :key="componentKey"
       />
     </div>
-    <Popular v-if="toggleView === 1" :loading="loading" />
-    <TopRated v-if="toggleView === 2" :loading="loading" />
-    <Upcoming v-if="toggleView === 3" :loading="loading" />
+    <Popular v-if="toggleView === 1"  />
+    <TopRated v-if="toggleView === 2"  />
+    <Upcoming v-if="toggleView === 3"  />
   </div>
 </template>
 
 <script>
+
 export default {
+  
   components: {
     Popular: () => import("./Popular.vue"),
     TopRated: () => import("./TopRated.vue"),
@@ -29,7 +31,7 @@ export default {
   },
   data() {
     return {
-      loading: true,
+      // loading: true,
       toggleView: 1,
       popularActive: true,
       upcomingActive: false,
